@@ -1,0 +1,56 @@
+﻿@model IEnumerable<giayit.ServiceReferenceChiTietHoaDon.chitiethoadon>
+
+@{
+    ViewBag.Title = "chitietmuahang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="columncenter">
+               <div class="header-center">CHI TIẾT ĐƠN HÀNG</div>
+               <div style="width:580px;height:500px;" > 
+                     <fieldset style="width:530px; font-size: 16px">
+                        <legend style="flex-item-align:center"><span style="color:black">Địa chỉ giao hàng </span></legend>
+                        Mã hóa đơn : @ViewBag.mahoadon <br />
+                         Tài khoản: @ViewBag.makhachang <br />
+                         Tên khách hàng : @ViewBag.tenkhachhang <br/>
+                         Địa chỉ : @ViewBag.diachi  <br/>
+                         Số điện thoại : @ViewBag.sdt <br/>
+                         Email : @ViewBag.email<br/>
+                         Ngày đặt hàng: @ViewBag.ngaydathang     <br />        
+                         Tình trạng : @ViewBag.tinhtrang  <br />
+            
+                    </fieldset>
+               
+        <table border="1" >
+             
+            <tr style="background-image:url(../../../../Image/menu_top.png)">
+                      <td align="center" width="100"><span style="color: #ffffff"><b>Mã sản phẩm</b></span></td>
+                      <td align="center" width="150"><span style="color: #ffffff"><b>Tên sản phẩm</b></span></td>
+                      <td align="center" width="80"><span style="color: #ffffff"><b>Số lượng</b></span></td>
+                      
+                      <td align="center" width="100"><span style="color: #ffffff"><b>Giá tiền</b></span></td>
+                      
+                     
+                      
+             </tr>
+            @foreach (var user in Model)
+            {   
+                <tr>
+                    <td align="center" width="100">@user.masanpham</td>
+                    <td align="center" width="150">@user.tensanpham</td>
+                    <td align="center" width="80">@user.soluong</td>
+                    
+                    <td align="center" width="100"> @String.Format("{0:0,0 VNĐ}", Convert.ToInt32(user.giasanpham)) </td>
+                   
+                </tr>
+            }
+            
+        </table>     
+                   
+                    
+                
+                   <a href="/home/index" style="font-size: 17px; color:#333; font-weight:bold; margin:10px; float:left">
+                       <img src="../Image/back.png" style="height: 10px; width: 15px" />Tiếp tục mua hàng</a>
+               </div>  
+            </div>
+
